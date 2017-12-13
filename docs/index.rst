@@ -1,7 +1,9 @@
+.. Read the Docs Template documentation master file, created by
+   sphinx-quickstart on Tue Aug 26 14:19:49 2014.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
 
-
-Documentacion Proyecto Arquitectura de Software
-Documentación del proyecto semestral de la asignatura arquitectura de software, impartida por el Dr. Ricardo Gacitúa, este proyecto consiste en elaboración de un sistema de administración de edificios departamentales, haciendo uso de la metodología Visual Ad-hoc desarrollada para este proyecto.
+Welcome to Read the Docs Template's documentation!
 ==================================================
 
 Contents:
