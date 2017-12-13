@@ -54,3 +54,13 @@ Uno de los proyectos de TensorFlow, `MobileNet <https://research.googleblog.com/
 Una de las demostraciones más recientes de Android, `TF Detect <https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/DetectorActivity.java>`_, usa un modelo de MobileNet entrenado usando la API de detección de objetos Tensorflow.
 
 .. image:: img/TF05.jpg
+
+El ecosistema TensorFlow
+El ecosistema TensorFlow incluye muchas herramientas y bibliotecas, mencionaremos las principales:
+
+
+`TensorBoard <https://github.com/tensorflow/tensorboard/blob/master/README.md>`_: es un conjunto de aplicaciones web para inspeccionar, visualizar y comprender las ejecuciones y gráficos de TensorFlow. Podemos usar TensorBoard para ver los gráficos del modelo TensorFlow y acercar los detalles de las subsecciones.
+
+Puede trazar métricas como la pérdida y la precisión durante una ejecución de entrenamiento; mostrar las visualizaciones del histograma de cómo un tensor está cambiando con el tiempo; mostrar datos adicionales, como imágenes; recopilar metadatos de tiempo de ejecución para una ejecución, como el uso total de la memoria y las formas del tensor para los nodos.
+
+.. image:: img/TF07.gif
