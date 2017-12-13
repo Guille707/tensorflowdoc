@@ -64,3 +64,12 @@ El ecosistema TensorFlow incluye muchas herramientas y bibliotecas, mencionaremo
 Puede trazar métricas como la pérdida y la precisión durante una ejecución de entrenamiento; mostrar las visualizaciones del histograma de cómo un tensor está cambiando con el tiempo; mostrar datos adicionales, como imágenes; recopilar metadatos de tiempo de ejecución para una ejecución, como el uso total de la memoria y las formas del tensor para los nodos.
 
 .. image:: img/TF07.gif
+
+https://www.tensorflow.org/get_started/summaries_and_tensorboard
+
+
+TensorBoard funciona leyendo los archivos de TensorFlow que contienen `información resumida <https://www.tensorflow.org/get_started/summaries_and_tensorboard>`_ sobre el proceso de capacitación. Puede generar estos archivos cuando ejecuta trabajos de TensorFlow.
+
+Puede usar TensorBoard para comparar ejecuciones de entrenamiento, recopilar estadísticas de tiempo de ejecución y generar `histogramas <https://www.tensorflow.org/get_started/tensorboard_histograms>`_.
+
+.. image:: img/TF08.png
