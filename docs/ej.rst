@@ -1,5 +1,5 @@
 ============
-Installation
+Ejemplo
 ============
 
 Install the package with pip::
