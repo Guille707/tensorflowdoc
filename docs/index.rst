@@ -12,4 +12,4 @@ TensorFlow es una biblioteca de código abierto para el cálculo numérico utili
    :maxdepth: 2
    :caption: Indice:
 
-   Descripcion <1descripcion>
+   Descripción <1descripcion>
