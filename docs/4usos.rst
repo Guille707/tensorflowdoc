@@ -5,7 +5,7 @@ Usos
 
 RankBrain
 
-.. image:: img/TF10.png
+.. image:: img/TF10.jpg
 
 Organización : Dominio de Google : recuperación de información
 Descripción : despliegue a gran escala de redes neuronales profundas para el ranking de búsqueda en Google .
