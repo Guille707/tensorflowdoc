@@ -8,20 +8,8 @@ Tensor Flow
 
 TensorFlow es una biblioteca de código abierto para el cálculo numérico utilizando gráficos de flujo de datos. Originalmente fue desarrollado por el Equipo de Google Brain en la organización de investigación de Machine Learning de Google para el aprendizaje automático y la investigación de redes neuronales, pero el sistema es apto como para ser aplicable en una amplia variedad de otros dominios también. Llegó a la versión 1.0 en febrero de 2017 y ha continuado su rápido desarrollo.
 
-Contenido:
-
 .. toctree::
    :maxdepth: 2
-   :glob:
+   :caption: Indice:
 
-   *
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+   Descripcion <1descripcion>
