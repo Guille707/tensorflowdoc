@@ -22,3 +22,13 @@ TensorFlow tiene APIs disponibles en varios lenguajes de programación para util
 TensorFlow y la comunidad de software de código abierto.
 
 TensorFlow fue de origen abierto en gran parte para permitir a la comunidad mejorarlo con contribuciones. Cualquier duda o consulta podemos ir a los siguientes enlaces `Stack Overflow  <https://stackoverflow.com/questions/tagged/tensorflow>`_ y `mail  <https://groups.google.com/a/tensorflow.org/forum/#!forum/discuss>`_.
+
+Modelos de fuente abierta de TensorFlow
+El equipo de TensorFlow ha abierto una gran cantidad de modelos. Puede encontrarlos en el `repositorio tensorflow / models  <https://github.com/tensorflow/models>`_. Para muchos de estos, el código publicado incluye no solo el gráfico del modelo, sino también los pesos del modelo entrenado. Esto significa que puede probar estos modelos al instante, y puede utilizar muchos más con un proceso llamado `https://www.tensorflow.org/tutorials/image_retraining  <https://groups.google.com/a/tensorflow.org/forum/#!forum/discuss>`_.
+
+Estos son solo algunos de los modelos lanzados.
+
+La `API de Detección de Objetos <http://research.googleblog.com/2017/06/supercharge-your-computer-vision-models.html>`_: Sigue siendo un desafío central de aprendizaje automático crear modelos precisos de aprendizaje automático capaces de localizar e identificar múltiples objetos en una sola imagen. La `API de Detección de Objetos TensorFlow <https://github.com/tensorflow/models/tree/master/research/object_detection>`_ de fuente abierta recientemente ha producido resultados de vanguardia (y se ha colocado primero en el desafío de detección de `COCO <http://mscoco.org/dataset/#detections-leaderboard>`_).
+
+
+
