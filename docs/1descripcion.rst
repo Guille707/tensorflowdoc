@@ -65,13 +65,12 @@ Puede trazar métricas como la pérdida y la precisión durante una ejecución d
 
 .. image:: img/TF07.gif
 
-https://www.tensorflow.org/get_started/summaries_and_tensorboard
-
-
 TensorBoard funciona leyendo los archivos de TensorFlow que contienen `información resumida <https://www.tensorflow.org/get_started/summaries_and_tensorboard>`_ sobre el proceso de capacitación. Puede generar estos archivos cuando ejecuta trabajos de TensorFlow.
 
 Puede usar TensorBoard para comparar ejecuciones de entrenamiento, recopilar estadísticas de tiempo de ejecución y generar `histogramas <https://www.tensorflow.org/get_started/tensorboard_histograms>`_.
 
-.. image:: img/TF08.
+.. image:: img/TF08.png
 
 Una característica particularmente fascinante de TensorBoard es su `visualizador de incrustaciones <https://www.tensorflow.org/get_started/embedding_viz>`_. Las `incrustaciones <http://colah.github.io/posts/2014-10-Visualizing-MNIST/>`_ son `omnipresentes <https://www.tensorflow.org/tutorials/word2vec>`_ en el aprendizaje automático, y en el contexto de TensorFlow, a menudo es natural ver los tensores como puntos en el espacio, por lo que casi cualquier modelo de TensorFlow dará lugar a varias incrustaciones.
+
+.. image:: img/TF09.gif
