@@ -44,10 +44,12 @@ La `API de Detección de Objetos <http://research.googleblog.com/2017/06/superch
 
 `Multistyle Pastiche Generator <https://magenta.tensorflow.org/2016/11/01/multistyle-pastiche-generator/>`_ del `Proyecto Magenta <https://magenta.tensorflow.org/>`_ : "Transferencia de estilo" es lo que sucede bajo aplicaciones que utilizan el estilo de una pintura a una foto. Este modelo Magenta amplía la transferencia de estilo de imagen al `crear una red única <https://github.com/tensorflow/magenta/tree/master/magenta/models/image_stylization>`_ crear una red única que puede realizar más de una estilización de una imagen.
 
+.. image:: img/TF06.png
+
 Uso de TensorFlow en dispositivos móviles
 
-TensorFlow está trabajando para ayudar a los desarrolladores a crear `aplicaciones móviles ligeras <https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android/>`_, tanto al continuar reduciendo la huella del código como al respaldar la cuantificación.
-Uno de los proyectos de TensorFlow, `MobileNet <https://research.googleblog.com/2017/06/mobilenets-open-source-models-for.html>`_ , está desarrollando un conjunto de modelos de visión por computadora especialmente diseñados para abordar las ventajas y desventajas de velocidad / precisión que deben considerarse en los dispositivos móviles o en las aplicaciones integradas. Los modelos de MobileNet se pueden encontrar en el `repositorio de modelos TensorFlow <https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.md>`_ también.
+TensorFlow está trabajando para ayudar a los desarrolladores a crear `aplicaciones móviles ligeras <https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android/>`_, tanto al continuar reduciendo la huella del código como al respaldar la cuantificación de este.
+Uno de los proyectos de TensorFlow, `MobileNet <https://research.googleblog.com/2017/06/mobilenets-open-source-models-for.html>`_ , está desarrollando un conjunto de modelos de visión por computador especialmente diseñados para abordar las ventajas y desventajas de velocidad / precisión que deben considerarse en los dispositivos móviles o en las aplicaciones integradas. Los modelos de MobileNet se pueden encontrar en el `repositorio de modelos TensorFlow <https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.md>`_ también.
 
 Una de las demostraciones más recientes de Android, `TF Detect <https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/android/src/org/tensorflow/demo/DetectorActivity.java>`_, usa un modelo de MobileNet entrenado usando la API de detección de objetos Tensorflow.
 
