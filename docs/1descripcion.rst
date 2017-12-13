@@ -33,6 +33,12 @@ La `API de Detección de Objetos <http://research.googleblog.com/2017/06/superch
 
 .. image:: img/TF03.png
 
-tf-seq2seq : Google anunció previamente Google Neural Machine Translation (GNMT), un modelo de secuencia a secuencia (seq2seq) que ahora se utiliza en los sistemas de producción Google Translate. tf-seq2seq es un marco de código abierto seq2seq en TensorFlow que hace que sea fácil experimentar con modelos seq2seq y lograr resultados de última generación.
+
+`tf-seq2seq <https://google.github.io/seq2seq/getting_started/>`_: Google anunció previamente
+`Google Neural Machine Translation (GNMT) <https://research.googleblog.com/2016/09/a-neural-network-for-machine.html>`_, un modelo de secuencia a secuencia (seq2seq) que ahora se utiliza en los sistemas de producción Google Translate. tf-seq2seq es un marco de código abierto seq2seq en TensorFlow que hace que sea fácil experimentar con modelos seq2seq y lograr resultados de última generación.
+
+`ParseySaurus <https://research.googleblog.com/2017/03/an-upgrade-to-syntaxnet-new-models-and.html>`_ es un conjunto de modelos prediseñados que reflejan una actualización a `SyntaxNet <https://research.googleblog.com/2017/03/an-upgrade-to-syntaxnet-new-models-and.html>`_ . Los nuevos modelos usan una representación de entrada basada en caracteres y son mucho mejores para predecir el significado de palabras nuevas basadas tanto en su ortografía como en cómo se usan en el contexto. Son mucho más precisos que sus predecesores, particularmente para los idiomas en los que puede haber docenas de formas para cada palabra y muchas de estas formas podrían nunca ser observadas durante el entrenamiento, incluso en un corpus muy grande.
+
+.. image:: img/TF04.png
 
 
