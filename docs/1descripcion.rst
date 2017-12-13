@@ -56,6 +56,7 @@ Una de las demostraciones más recientes de Android, `TF Detect <https://github.
 .. image:: img/TF05.jpg
 
 El ecosistema TensorFlow
+
 El ecosistema TensorFlow incluye muchas herramientas y bibliotecas, mencionaremos las principales:
 
 
@@ -79,6 +80,6 @@ Datalab: `Jupyter <https://jupyter.org/>`_ notebooks es una manera fácil de exp
 
 Facets: El poder del aprendizaje de máquinas proviene de su capacidad de aprender patrones a partir de grandes cantidades de datos, por lo que comprender sus datos puede ser fundamental para construir un poderoso sistema de aprendizaje automático. `Facets <https://research.googleblog.com/2017/07/facets-open-source-visualization-tool.html>`_ es una `herramienta de visualización de datos de código abierto <https://pair-code.github.io/facets/>`_ recientemente lanzada que ayuda a comprender sus conjuntos de datos de aprendizaje automático y obtener una idea de la forma y características de cada característica y ver de un vistazo cómo interactúan las características entre sí. Por ejemplo, puede ver sus conjuntos de datos de entrenamiento y prueba.
 
-Y más…:Otra herramienta de diagnóstico útil es el `depurador TensorFlow <https://www.tensorflow.org/programmers_guide/debugger>`_ , tfdbg , que permite ver la estructura interna y los estados de ejecución de los gráficos TensorFlow durante el entrenamiento y la inferencia.
+Otra herramienta de diagnóstico útil es el `depurador TensorFlow <https://www.tensorflow.org/programmers_guide/debugger>`_ , tfdbg , que permite ver la estructura interna y los estados de ejecución de los gráficos TensorFlow durante el entrenamiento y la inferencia.
 
 Hay muchas otras herramientas y bibliotecas `repositorios org de TensorFlow GitHub para conocerlos <https://github.com/tensorflow>`_.
