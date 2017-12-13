@@ -2,9 +2,9 @@
 Descripción
 ============
 
-¿Qué es Tensorflow?
+¿Qué es Tensorflow?.
 
-Una biblioteca open-source para Machine Intelligence 
+Una biblioteca open-source para Machine Intelligence.
 
 .. image:: img/TF01.png
 
@@ -15,8 +15,10 @@ TensorFlow tiene APIs disponibles en varios lenguajes de programación para util
  `Java  <https://www.tensorflow.org/api_docs/java/reference/org/tensorflow/package-summary>`_, 
  `Go  <https://godoc.org/github.com/tensorflow/tensorflow/tensorflow/go>`_.
 
- La `API Layers  <https://www.tensorflow.org/tutorials/layers/>`_ proporciona una interfaz más simple para capas utilizadas comúnmente en modelos de deep learning. Además de eso, se encuentran API de nivel superior, que incluyen `Keras  <https://www.tensorflow.org/versions/master/api_docs/python/tf/contrib/keras>`_ y la `API Estimator  <https://www.tensorflow.org/versions/master/api_docs/python/tf/contrib/keras>`_ que facilita el entrenamiento y la evaluación de modelos distribuidos.
+ La `API Layers  <https://www.tensorflow.org/tutorials/layers/>`_ proporciona una interfaz más simple para capas utilizadas comúnmente en modelos de deep learning. Además de eso, se encuentran API de nivel superior, que incluyen `Keras  <https://www.tensorflow.org/versions/master/api_docs/python/tf/contrib/keras>`_ y la `API Estimator  <https://www.tensorflow.org/get_started/estimator>`_ que facilita el entrenamiento y la evaluación de modelos distribuidos.
 
  .. image:: img/TF02.png
 
+TensorFlow y la comunidad de software de código abierto.
 
+TensorFlow fue de origen abierto en gran parte para permitir a la comunidad mejorarlo con contribuciones. Cualquier duda o consulta podemos ir a los siguientes enlaces `Stack Overflow  <https://stackoverflow.com/questions/tagged/tensorflow>`_ y `mail  <https://groups.google.com/a/tensorflow.org/forum/#!forum/discuss>`_.
