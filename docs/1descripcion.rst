@@ -15,9 +15,8 @@ TensorFlow tiene APIs disponibles en varios lenguajes de programación para util
  `Java  <https://www.tensorflow.org/api_docs/java/reference/org/tensorflow/package-summary>`_. 
  `Go  <https://godoc.org/github.com/tensorflow/tensorflow/tensorflow/go>`_.
 
- La `API Layers  <https://www.tensorflow.org/tutorials/layers/>`_. proporciona una interfaz más simple para capas utilizadas comúnmente en modelos de deep learning. Además de eso, se encuentran API de nivel superior, que incluyen `Keras  <https://www.tensorflow.org/versions/master/api_docs/python/tf/contrib/keras>`_. y la `API Estimator  <https://www.tensorflow.org/versions/master/api_docs/python/tf/contrib/keras>`_. , que facilita el entrenamiento y la evaluación de modelos distribuidos.
+ La `API Layers  <https://www.tensorflow.org/tutorials/layers/>`_ proporciona una interfaz más simple para capas utilizadas comúnmente en modelos de deep learning. Además de eso, se encuentran API de nivel superior, que incluyen `Keras  <https://www.tensorflow.org/versions/master/api_docs/python/tf/contrib/keras>`_ y la `API Estimator  <https://www.tensorflow.org/versions/master/api_docs/python/tf/contrib/keras>`_ que facilita el entrenamiento y la evaluación de modelos distribuidos.
 
  .. image:: img/TF02.png
 
 
- 
