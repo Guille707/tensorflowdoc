@@ -84,7 +84,7 @@ Aquí es donde haremos nuestro trabajo. El código provisto realiza alguna conve
 
 	ImageUtils.*
 
-Proporciona algunos helpers para transformar imágenes. La cámara proporciona datos de imagen en `YUV space <https://en.wikipedia.org/wiki/YUV>`_ (ya que es el más ampliamente compatible), pero la red espera `RGB <https://en.wikipedia.org/wiki/RGB_color_space>`_ , por lo que ofrecemos helpers para convertir la imagen. La mayoría de estos se implementan en C ++ nativo para la velocidad; el código está en el `jni https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android/jni>`_ < directorio, pero para este laboratorio se proporciona a través de los libtensorflow_demo.so binarios preconstruidos en el libsdirectorio (definido como jniLibs en Android Studio). Si no están disponibles, el código recurrirá a una implementación de Java.
+Proporciona algunos helpers para transformar imágenes. La cámara proporciona datos de imagen en `YUV space <https://en.wikipedia.org/wiki/YUV>`_ (ya que es el más ampliamente compatible), pero la red espera `RGB <https://en.wikipedia.org/wiki/RGB_color_space>`_ , por lo que ofrecemos helpers para convertir la imagen. La mayoría de estos se implementan en C ++ nativo para la velocidad; el código está en el `jni <https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android/jni>`_ directorio, pero para este laboratorio se proporciona a través de los libtensorflow_demo.so binarios preconstruidos en el libsdirectorio (definido como jniLibs en Android Studio). Si no están disponibles, el código recurrirá a una implementación de Java.
 
 Acerca de esta red
 
@@ -94,7 +94,7 @@ Acerca de esta red
 
 	Desde entonces, se han propuesto varias mejoras, incluida una que compensa las redes de preentrenamiento para cada estilo `( Johnson, et al., 2016 ) <https://arxiv.org/abs/1603.08155>`_ , lo que genera generación de imágenes en tiempo real.
 
-	Finalmente, la red que utilizamos en este laboratorio `( Dumoulin, et al., 2016 )<https://arxiv.org/abs/1610.07629>`_  intuyó que diferentes redes que representan diferentes estilos probablemente estarían duplicando mucha información, y propuso una red única entrenada en múltiples estilos. Un efecto secundario interesante de esto fue la capacidad de combinar estilos, que estamos usando aquí.
+	Finalmente, la red que utilizamos en este laboratorio `( Dumoulin, et al., 2016 ) <https://arxiv.org/abs/1610.07629>`_  intuyó que diferentes redes que representan diferentes estilos probablemente estarían duplicando mucha información, y propuso una red única entrenada en múltiples estilos. Un efecto secundario interesante de esto fue la capacidad de combinar estilos, que estamos usando aquí.
 
 	Para una comparación dela técnica de estas redes, así como la revisión de otras, consulte el artículo de revisión de `Cinjon Resnick <https://github.com/tensorflow/magenta/blob/master/magenta/reviews/styletransfer.md>`_ .
 
@@ -138,7 +138,7 @@ Agregue el código de inferencia
 
 	En StylizeActivity.java, agregue los siguientes campos, cerca de la parte superior de la clase (por ejemplo, justo antes de la NUM_STYLES)
 
-`StylizeActivity.java <https://github.com/googlecodelabs/tensorflow-style-transfer-android/blob/codelab-finish/android/src/org/tensorflow/demo/StylizeActivity.java>`_::
+`StylizeActivity.java <https://github.com/googlecodelabs/tensorflow-style-transfer-android/blob/codelab-finish/android/src/org/tensorflow/demo/StylizeActivity.java>`_ ::
 	
 	// Copy these lines below
 	private TensorFlowInferenceInterface inferenceInterface;
