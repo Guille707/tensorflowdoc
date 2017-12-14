@@ -112,7 +112,9 @@ Para agregar las bibliotecas de inferencia y sus dependencias a nuestro proyecto
 	1.Abrir  build.gradle en Android Studio.
 	2.Agregue la API al proyecto agregándola a "dependencies block" dentro del android block (nota: este no es el buildscript block).
 
-`build.gradle <https://github.com/googlecodelabs/tensorflow-style-transfer-android/blob/codelab-finish/android/build.gradle>`_
+`build.gradle <https://github.com/googlecodelabs/tensorflow-style-transfer-android/blob/codelab-finish/android/build.gradle>`_ 
+
+::
 
 	dependencies {
 	compile 'org.tensorflow:tensorflow-android:1.2.0-preview'
@@ -138,7 +140,9 @@ Agregue el código de inferencia
 
 	En StylizeActivity.java, agregue los siguientes campos, cerca de la parte superior de la clase (por ejemplo, justo antes de la NUM_STYLES)
 
-`StylizeActivity.java <https://github.com/googlecodelabs/tensorflow-style-transfer-android/blob/codelab-finish/android/src/org/tensorflow/demo/StylizeActivity.java>`_ ::
+`StylizeActivity.java <https://github.com/googlecodelabs/tensorflow-style-transfer-android/blob/codelab-finish/android/src/org/tensorflow/demo/StylizeActivity.java>`_ 
+
+::
 	
 	// Copy these lines below
 	private TensorFlowInferenceInterface inferenceInterface;
@@ -171,7 +175,9 @@ Importante : si recibe una advertencia sobre " No se puede encontrar el símbolo
 
 	Ahora encuentre el método stylizeImage, agregue el código para pasar nuestro mapa de bits de la cámara y los estilos elegidos a TensorFlow y tome la salida del gráfico. Esto va entre los dos bucles.
 
-`StylizeActivity.java <https://github.com/googlecodelabs/tensorflow-style-transfer-android/blob/codelab-finish/android/src/org/tensorflow/demo/StylizeActivity.java>`_::
+`StylizeActivity.java <https://github.com/googlecodelabs/tensorflow-style-transfer-android/blob/codelab-finish/android/src/org/tensorflow/demo/StylizeActivity.java>`_ 
+
+::
 
 	private void stylizeImage(final Bitmap bitmap) {
 	 // Find the code marked with: TODO: Process the image in TensorFlow here.
