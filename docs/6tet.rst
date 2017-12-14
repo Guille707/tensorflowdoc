@@ -1,70 +1,37 @@
 ====================================
-¿Transferencia de estilo artístico
+Transferencia de estilo artístico
 ====================================
-
 
 Uno de los desarrollos más interesantes en el aprendizaje profundo que ha surgido recientemente es la transferencia de estilo artístico , o la capacidad de crear una nueva imagen, conocida como pastiche , basada en dos imágenes de entrada: una que representa el estilo artístico y otra que representa el contenido.
 
-El modelo pix2pix funciona entrenando en pares de imágenes, como la construcción de etiquetas de fachada para construir fachadas, y luego intenta generar la imagen de salida correspondiente desde cualquier imagen de entrada que le proporcione. La idea es directamente del papel pix2pix , que es una buena lectura.
+.. image:: img/TF16.jpg
 
-.. image:: img/TF14.jpg
+Usando esta técnica, podemos generar bellas obras de arte nuevas en una variedad de estilos.
 
-Requisitos previos:
+.. image:: img/TF17.jpg
 
-Tensorflow 1.0.0
+Utilizaremos una red neuronal de transferencia de estilo artístico en una aplicación de Android en solo 9 líneas de código . Usar las técnicas descritas en este código para implementar cualquier red TensorFlow.
 
-Recomendado:
+Usaremos:
 
-Linux con Tensorflow GPU edition + cuDNN
+Uso de las bibliotecas Java y nativas Android de TensorFlow en su aplicación.
+Importación de un modelo capacitado de TensorFlow en una aplicación de Android.
+Realizar inferencia en una aplicación de Android.
+Accediendo a tensores específicos en un gráfico de TensorFlow.
 
-`Instalación tensorflow <https://www.tensorflow.org/install/>`_.
+Necesitamos:
 
-`cuDNN para mayor performance <https://developer.nvidia.com/cudnn>`_.
+Un dispositivo Android que ejecuta Lollipop (API 21, v5.0) con una cámara compatible con `Camera2 API <https://developer.android.com/reference/android/hardware/camera2/package-summary.html>`_ (introducido en API 21)
+Android Studio v2.2 o superior
+Incluyendo v23 (Marshmallow) o superior de las herramientas de compilación SDK
+
+Obtener el código:
+
+Hay dos formas de obtener la fuente de este codelab: descargue un archivo ZIP que contenga el código o clónelo desde GitHub.
+
+`Descargar ZIP <https://github.com/googlecodelabs/tensorflow-style-transfer-android/archive/codelab-start.zip>`_
 
 
-Empezando::
+Verifique el código de GitHub:
 
-	# clonar este repositorio
-	git clone https://github.com/affinelayer/pix2pix-tensorflow.git
-	cd pix2pix-tensorflow
-	 # descarga el conjunto de datos de fachadas CMP (generado a partir de http://cmp.felk.cvut.cz/~tylecr1/facade/)
-	python tools/download-dataset.py facades
-
-	# entrenar el modelo (esto puede demorar 1-8 horas dependiendo de la GPU, en la CPU estará esperando un poco)
-
-	python pix2pix.py \
-	  --mode train \
-	  --output_dir facades_train \
-	  --max_epochs 200 \
-	  --input_dir facades/train \
-	  --which_direction BtoA
-
-	# prueba el modelo
-
-	python pix2pix.py \
-	  --mode test \
-	  --output_dir facades_test \
-	  --input_dir facades/val \
-	  --checkpoint facades_train
-
-.. image:: img/TF15.png 
-
-La ejecución de prueba generará un archivo HTML en el facades_test/index.html que se muestran los conjuntos de imágenes de entrada / salida / destino.
-
-Si tiene instalado Docker, puede usar la imagen proporcionada de Docker para ejecutar pix2pix sin instalar la versión correcta de Tensorflow::
-
-	# entrenar el modelo
-	python tools/dockrun.py python pix2pix.py \
-	      --mode train \
-	      --output_dir facades_train \
-	      --max_epochs 200 \
-	      --input_dir facades/train \
-	      --which_direction BtoA
-	# prueba el modelo
-	python tools/dockrun.py python pix2pix.py \
-	      --mode test \
-	      --output_dir facades_test \
-	      --input_dir facades/val \
-	      --checkpoint facades_train
-
-`Más Información <https://github.com/affinelayer/pix2pix-tensorflow>`_. 
+	git clone https://github.com/googlecodelabs/tensorflow-style-transfer-android
