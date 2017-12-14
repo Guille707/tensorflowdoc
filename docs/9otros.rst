@@ -14,7 +14,7 @@ Proyectos para jugar:
 
 	https://github.com/kevinhughes27/TensorKart
 
-	.. image:: img/otro1.png 
+	.. image:: img/otro1.gif
 
 	https://github.com/DanielSlater/PyGamePlayer
 
