@@ -231,3 +231,7 @@ Abra el proyecto con AndroidStudio
 Abra un proyecto con AndroidStudio siguiendo estos pasos:
 
 .. image:: img/tf24.jpg
+
+En el selector de archivos, elija tensorflow-for-poets-2/android/tfmobiledesde su directorio de trabajo.
+
+Obtendrá una ventana emergente de "Gradle Sync", la primera vez que abre el proyecto, y le pregunta sobre el uso de gradle wrapper. Haga clic en Aceptar".
