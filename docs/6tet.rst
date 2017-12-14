@@ -100,3 +100,9 @@ Acerca de esta red
 
 	El resultado final es el stylize_quantized.pb archivo, que se muestra a continuación, que usará en la aplicación. El nodo transformador contiene la mayor parte del gráfico, haga clic en la `versión interactiva para expandirlo <https://googlecodelabs.github.io/tensorflow-style-transfer-android/>`_.
 
+Agregar dependencias al proyecto:
+
+Para agregar las bibliotecas de inferencia y sus dependencias a nuestro proyecto, debemos agregar la biblioteca de inferencia de Android TensorFlow y la API de Java, que está disponible en `JCenter <https://bintray.com/google/tensorflow/tensorflow>`_ (en Archivos, tensorflow-android) o puede compilarlo desde la fuente `TensorFlow <https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/android>`_.
+
+	Abrir  build.gradleen Android Studio.
+	Agregue la API al proyecto agregándola al dependenciesbloque dentro del androidbloque (nota: este no es el buildscriptbloque).
