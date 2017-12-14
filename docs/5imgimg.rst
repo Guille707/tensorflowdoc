@@ -10,15 +10,16 @@ Requisitos previos:
 
 Tensorflow 1.0.0
 
-Recomendado
+Recomendado:
 
 Linux con Tensorflow GPU edition + cuDNN
 
+`Instalación tensorflow <https://www.tensorflow.org/install/>`_.
+
+`cuDNN para mayor performance <https://developer.nvidia.com/cudnn>`_.
+
+
 Empezando::
-
-	`Instalación tensorflow <https://www.tensorflow.org/install/>`_
-
-	`cuDNN para mayor performance <https://developer.nvidia.com/cudnn>`_
 
 	# clonar este repositorio
 	git clone https://github.com/affinelayer/pix2pix-tensorflow.git
