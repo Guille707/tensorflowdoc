@@ -15,14 +15,19 @@ Utilizaremos una red neuronal de transferencia de estilo artístico en una aplic
 Usaremos:
 
 Uso de las bibliotecas Java y nativas Android de TensorFlow en su aplicación.
+
 Importación de un modelo capacitado de TensorFlow en una aplicación de Android.
+
 Realizar inferencia en una aplicación de Android.
+
 Accediendo a tensores específicos en un gráfico de TensorFlow.
 
 Necesitamos:
 
 Un dispositivo Android que ejecuta Lollipop (API 21, v5.0) con una cámara compatible con `Camera2 API <https://developer.android.com/reference/android/hardware/camera2/package-summary.html>`_ (introducido en API 21)
+
 Android Studio v2.2 o superior
+
 Incluyendo v23 (Marshmallow) o superior de las herramientas de compilación SDK
 
 Obtener el código:
@@ -87,7 +92,7 @@ Acerca de esta red
 
 	La red que estamos importando es el resultado de varios desarrollos importantes. El primer papel de transferencia de estilo neuronal `( Gatys, et al., 2015 ) <http://arxiv.org/abs/1508.06576>`_ introdujo una técnica que explota las propiedades de las redes de clasificación de imágenes convolucionales, donde las capas inferiores identifican bordes y formas simples (componentes de estilo) y los niveles superiores identifican contenido más complejo para generar un "pastiche" Esta técnica funciona en dos imágenes, pero es lenta en su ejecución.
 
-	Desde entonces, se han propuesto varias mejoras, incluida una que compensa las redes de preentrenamiento para cada estilo `( Johnson, et al., 2016 ) <https://arxiv.org/abs/1603.08155>`_, lo que genera generación de imágenes en tiempo real.
+	Desde entonces, se han propuesto varias mejoras, incluida una que compensa las redes de preentrenamiento para cada estilo `( Johnson, et al., 2016 ) <https://arxiv.org/abs/1603.08155>`_ , lo que genera generación de imágenes en tiempo real.
 
 	Finalmente, la red que utilizamos en este laboratorio `( Dumoulin, et al., 2016 )<https://arxiv.org/abs/1610.07629>`_  intuyó que diferentes redes que representan diferentes estilos probablemente estarían duplicando mucha información, y propuso una red única entrenada en múltiples estilos. Un efecto secundario interesante de esto fue la capacidad de combinar estilos, que estamos usando aquí.
 
@@ -104,5 +109,119 @@ Agregar dependencias al proyecto:
 
 Para agregar las bibliotecas de inferencia y sus dependencias a nuestro proyecto, debemos agregar la biblioteca de inferencia de Android TensorFlow y la API de Java, que está disponible en `JCenter <https://bintray.com/google/tensorflow/tensorflow>`_ (en Archivos, tensorflow-android) o puede compilarlo desde la fuente `TensorFlow <https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/android>`_.
 
-	Abrir  build.gradleen Android Studio.
-	Agregue la API al proyecto agregándola al dependenciesbloque dentro del androidbloque (nota: este no es el buildscriptbloque).
+	1.Abrir  build.gradle en Android Studio.
+	2.Agregue la API al proyecto agregándola a "dependencies block" dentro del android block (nota: este no es el buildscript block).
+
+`build.gradle <https://github.com/googlecodelabs/tensorflow-style-transfer-android/blob/codelab-finish/android/build.gradle>`_
+
+	dependencies {
+	compile 'org.tensorflow:tensorflow-android:1.2.0-preview'
+	}
+
+	3.Haga clic en el botón de Gradle sync para que estos cambios estén disponibles en el IDE.
+
+La interfaz de inferencia de TensorFlow
+
+Al ejecutar el código de TensorFlow, normalmente necesitaría administrar tanto un gráfico computacional como una sesión (como se describe en los documentos de `Getting Started <https://www.tensorflow.org/get_started/get_started#the_computational_graph>`_ ); sin embargo, dado que los desarrolladores de Android probablemente deseen realizar inferencias sobre un gráfico preconstruido, TensorFlow proporciona una interfaz Java que maneja la gráfica y la sesión: `TensorFlowInferenceInterface <https://github.com/tensorflow/tensorflow/blob/master/tensorflow/contrib/android/java/org/tensorflow/contrib/android/TensorFlowInferenceInterface.java>`_.
+
+Si necesita más control, la API de TensorFlow Java proporciona `Session <https://github.com/tensorflow/tensorflow/blob/master/tensorflow/java/src/main/java/org/tensorflow/Session.java>`_ y los `Graph <https://github.com/tensorflow/tensorflow/blob/master/tensorflow/java/src/main/java/org/tensorflow/Graph.java>`_ objetos que puede conocer de la API de Python.
+
+La red de transferencia de estilo
+
+Hemos incluido la red de transferencia de estilo descrita en la última sección del  assets, directorio del proyecto , por lo que estará disponible para el uso. También puede `descargarlo directamente <https://storage.googleapis.com/download.tensorflow.org/models/stylize_v1.zip>`_ o compilarlo `desde el proyecto Magenta <https://github.com/tensorflow/magenta/blob/master/magenta/models/image_stylization/README.md>`_ .
+
+Puede valer la pena abrir el visor gráfico interactivo para que pueda ver los nodos a los que haremos referencia en breve ( Sugerencia : abra el nodo transformado haciendo clic en el ícono + que aparece una vez que se desplaza).
+
+`Grafico interactivo <https://googlecodelabs.github.io/tensorflow-style-transfer-android/>`_
+
+Agregue el código de inferencia
+
+	En StylizeActivity.java, agregue los siguientes campos, cerca de la parte superior de la clase (por ejemplo, justo antes de la NUM_STYLES)
+
+`StylizeActivity.java <https://github.com/googlecodelabs/tensorflow-style-transfer-android/blob/codelab-finish/android/src/org/tensorflow/demo/StylizeActivity.java>`_::
+	
+	// Copy these lines below
+	private TensorFlowInferenceInterface inferenceInterface;
+
+	private static final String MODEL_FILE = "file:///android_asset/stylize_quantized.pb";
+
+	private static final String INPUT_NODE = "input";
+	private static final String STYLE_NODE = "style_num";
+	private static final String OUTPUT_NODE = "transformer/expand/conv3/conv/Sigmoid";
+
+	// Do not copy this line, you want to find it and paste before it.
+	private static final int NUM_STYLES = 26;
+
+cada uno de estos nodos corresponde a un nodo del mismo nombre en el gráfico. Intente encontrarlos en la herramienta gráfica interactiva anterior. Donde vea un / (carácter de barra) tendrá que expandir un nodo para ver sus elementos secundarios.
+
+	En la misma clase, encuentre el método onPreviewSizeChosen y construya el TensorFlowInferenceInterface. Utilizamos este método para la inicialización, ya que se llama una vez que se otorgan los permisos al sistema de archivos y a la cámara.
+
+::
+
+	@Override
+	public void onPreviewSizeChosen(final Size size, final int rotation) {
+	 // anywhere in here is fine
+
+	 inferenceInterface = new TensorFlowInferenceInterface(getAssets(), MODEL_FILE);
+
+	 // anywhere at all...
+	}
+
+Importante : si recibe una advertencia sobre " No se puede encontrar el símbolo ... ", deberá agregar las declaraciones de importación en este archivo. Android Studio puede hacer esto para usted si se mueve el cursor sobre el texto de error en rojo, pulse Alt-Intro , y selecciona Importar ...
+
+	Ahora encuentre el método stylizeImage, agregue el código para pasar nuestro mapa de bits de la cámara y los estilos elegidos a TensorFlow y tome la salida del gráfico. Esto va entre los dos bucles.
+
+`StylizeActivity.java <https://github.com/googlecodelabs/tensorflow-style-transfer-android/blob/codelab-finish/android/src/org/tensorflow/demo/StylizeActivity.java>`_::
+
+	private void stylizeImage(final Bitmap bitmap) {
+	 // Find the code marked with: TODO: Process the image in TensorFlow here.
+	 // Then paste the following code in at that location.
+	 
+	 // Start copying here:
+
+	 // Copy the input data into TensorFlow.
+	 inferenceInterface.feed(INPUT_NODE, floatValues, 
+	   1, bitmap.getWidth(), bitmap.getHeight(), 3);
+	 inferenceInterface.feed(STYLE_NODE, styleVals, NUM_STYLES);
+
+	 // Execute the output node's dependency sub-graph.
+	 inferenceInterface.run(new String[] {OUTPUT_NODE}, isDebug());
+
+	 // Copy the data from TensorFlow back into our array.
+	 inferenceInterface.fetch(OUTPUT_NODE, floatValues);
+
+	 // Don't copy this code, it's already in there.
+	 for (int i = 0; i < intValues.length; ++i) {
+	 // ...
+	}
+
+
+	Opcional: busque renderDebugy agregue el texto de estado de TensorFlow a la superposición de depuración (que se activa cuando presiona las teclas de volumen).			
+
+`StylizeActivity.java`_<https://github.com/googlecodelabs/tensorflow-style-transfer-android/blob/codelab-finish/android/src/org/tensorflow/demo/StylizeActivity.java>`_::
+
+	private void renderDebug(final Canvas canvas) {
+	 // ... provided code that does some drawing ...
+
+	 // Look for this line, but don't copy it, it's already there.
+	 final Vector<String> lines = new Vector<>();
+
+	 // Add these three lines right here:
+	 final String[] statLines = inferenceInterface.getStatString().split("\n");
+	 Collections.addAll(lines, statLines);
+	 lines.add("");
+
+	 // Don't add this line, it's already there
+	 lines.add("Frame: " + previewWidth + "x" + previewHeight);
+	 // ... more provided code for rendering the text ...
+	}
+
+Importante : si recibe una advertencia sobre " No se puede encontrar el símbolo ... ", deberá agregar las declaraciones de importación en este archivo. Android Studio puede hacer esto para usted si se mueve el cursor sobre el texto de error en rojo, pulse Alt-Intro , y selecciona Importar ... .
+
+Finalmente
+
+	En Android Studio, presione el botón Ejecutar y espere a que se construya el proyecto.
+
+	¡Ahora debería ver la transferencia de estilos en su dispositivo!
+
+.. image:: img/TF18.png			
