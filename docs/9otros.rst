@@ -16,6 +16,7 @@ Repos divertidos:
 
 	.. image:: img/otro1.gif
 
+-
 
 	https://github.com/DanielSlater/PyGamePlayer
 
