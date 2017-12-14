@@ -80,3 +80,23 @@ Aquí es donde haremos nuestro trabajo. El código provisto realiza alguna conve
 	ImageUtils.*
 
 Proporciona algunos helpers para transformar imágenes. La cámara proporciona datos de imagen en `YUV space <https://en.wikipedia.org/wiki/YUV>`_ (ya que es el más ampliamente compatible), pero la red espera `RGB <https://en.wikipedia.org/wiki/RGB_color_space>`_ , por lo que ofrecemos helpers para convertir la imagen. La mayoría de estos se implementan en C ++ nativo para la velocidad; el código está en el `jni https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android/jni>`_ < directorio, pero para este laboratorio se proporciona a través de los libtensorflow_demo.so binarios preconstruidos en el libsdirectorio (definido como jniLibs en Android Studio). Si no están disponibles, el código recurrirá a una implementación de Java.
+
+Acerca de esta red
+
+	Si bien no es crítico entender cómo funciona esta red para usarla o importarla, aquí se proporcionan algunos antecedentes. SE PUEDE SALTAR ESTA SECCIÓN
+
+La red que estamos importando es el resultado de varios desarrollos importantes. El primer papel de transferencia de estilo neuronal `( Gatys, et al., 2015 ) <http://arxiv.org/abs/1508.06576>`_ introdujo una técnica que explota las propiedades de las redes de clasificación de imágenes convolucionales, donde las capas inferiores identifican bordes y formas simples (componentes de estilo) y los niveles superiores identifican contenido más complejo para generar un "pastiche" Esta técnica funciona en dos imágenes, pero es lenta en su ejecución.
+
+Desde entonces, se han propuesto varias mejoras, incluida una que compensa las redes de preentrenamiento para cada estilo `( Johnson, et al., 2016 ) <https://arxiv.org/abs/1603.08155>`_, lo que genera generación de imágenes en tiempo real.
+
+Finalmente, la red que utilizamos en este laboratorio `( Dumoulin, et al., 2016 )<https://arxiv.org/abs/1610.07629>`_  intuyó que diferentes redes que representan diferentes estilos probablemente estarían duplicando mucha información, y propuso una red única entrenada en múltiples estilos. Un efecto secundario interesante de esto fue la capacidad de combinar estilos, que estamos usando aquí.
+
+Para una comparación dela técnica de estas redes, así como la revisión de otras, consulte el artículo de revisión de `Cinjon Resnick <https://github.com/tensorflow/magenta/blob/master/magenta/reviews/styletransfer.md>`_ .
+
+Dentro de la red
+El código original de TensorFlow que generó esta red está disponible en la página `GitHub de Magenta <https://github.com/tensorflow/magenta>`_, específicamente el `modelo de transformación de imágenes estilizadas <https://github.com/tensorflow/magenta/blob/master/magenta/models/image_stylization/model.py#L28>`_ ( `README <https://github.com/tensorflow/magenta/blob/master/magenta/models/image_stylization/README.md>`_ ).
+
+Antes de usarlo en un entorno con recursos limitados, como una aplicación móvil, este modelo se exportó y transformó para usar tipos de datos más pequeños y eliminar cálculos redundantes. Puede leer más sobre este proceso en el documento `Graph Transforms <https://github.com/tensorflow/tensorflow/blob/master/tensorflow/tools/graph_transforms/README.md>`_.
+
+El resultado final es el stylize_quantized.pb archivo, que se muestra a continuación, que usará en la aplicación. El nodo transformador contiene la mayor parte del gráfico, haga clic en la `versión interactiva para expandirlo <https://googlecodelabs.github.io/tensorflow-style-transfer-android/>`_.
+
