@@ -16,4 +16,4 @@ TensorFlow es una biblioteca de código abierto para el cálculo numérico utili
    Modelos de código abierto de TensorFlow <2modelos>
    El ecosistema TensorFlow <3ecosistema>
    Usos <4usos>
-   aplicaciones <5aplicaciones>
+   Aplicaciones <5aplicaciones>
