@@ -234,6 +234,6 @@ Finalmente
 
 .. image:: img/TF18.png		
 
-.. image:: img/tf.jpg			
+.. image:: img/tf22.jpg			
 
 
