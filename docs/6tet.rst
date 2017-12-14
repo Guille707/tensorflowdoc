@@ -4,11 +4,11 @@ Transferencia de estilo artístico
 
 Uno de los desarrollos más interesantes en el aprendizaje profundo que ha surgido recientemente es la transferencia de estilo artístico , o la capacidad de crear una nueva imagen, conocida como pastiche , basada en dos imágenes de entrada: una que representa el estilo artístico y otra que representa el contenido.
 
-.. image:: img/TF16.jpg
+.. image:: img/TF16.png
 
 Usando esta técnica, podemos generar bellas obras de arte nuevas en una variedad de estilos.
 
-.. image:: img/TF17.jpg
+.. image:: img/TF17.png
 
 Utilizaremos una red neuronal de transferencia de estilo artístico en una aplicación de Android en solo 9 líneas de código . Usar las técnicas descritas en este código para implementar cualquier red TensorFlow.
 
