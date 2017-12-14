@@ -1,5 +1,5 @@
 =====
-Otros
+Interesante
 =====
 
 API de Ruby para utilizar TensorFlow.
