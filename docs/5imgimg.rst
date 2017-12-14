@@ -44,6 +44,8 @@ Empezando::
 	  --input_dir facades/val \
 	  --checkpoint facades_train
 
+.. image:: img/TF15.png 
+
 La ejecución de prueba generará un archivo HTML en el facades_test/index.html que se muestran los conjuntos de imágenes de entrada / salida / destino.
 
 Si tiene instalado Docker, puede usar la imagen proporcionada de Docker para ejecutar pix2pix sin instalar la versión correcta de Tensorflow::
