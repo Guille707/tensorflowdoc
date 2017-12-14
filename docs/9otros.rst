@@ -10,7 +10,7 @@ TensorFlow Node. js JavaScript y una API de alto nivel para los usuarios de Node
 
 .. image:: img/node.png 
 
-Proyectos para jugar:
+Repos divertidos:
 
 	https://github.com/kevinhughes27/TensorKart
 
