@@ -232,8 +232,10 @@ Finalmente
 
 	¡Ahora debería ver la transferencia de estilos en su dispositivo!
 
+.. image:: img/tf22.jpg			
+
+
 .. image:: img/TF18.png		
 
-.. image:: img/tf22.jpg			
 
 
