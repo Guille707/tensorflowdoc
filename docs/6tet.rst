@@ -204,7 +204,9 @@ Importante : si recibe una advertencia sobre " No se puede encontrar el símbolo
 
 	Opcional: busque renderDebugy agregue el texto de estado de TensorFlow a la superposición de depuración (que se activa cuando presiona las teclas de volumen).			
 
-`StylizeActivity.java`_<https://github.com/googlecodelabs/tensorflow-style-transfer-android/blob/codelab-finish/android/src/org/tensorflow/demo/StylizeActivity.java>`_::
+`StylizeActivity.java <https://github.com/googlecodelabs/tensorflow-style-transfer-android/blob/codelab-finish/android/src/org/tensorflow/demo/StylizeActivity.java>`_ 
+
+::
 
 	private void renderDebug(final Canvas canvas) {
 	 // ... provided code that does some drawing ...
