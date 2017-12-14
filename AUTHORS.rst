@@ -1,6 +1,5 @@
 Authors
 -------
 
-* Guillermo Lemunao
-
+* Sysoo
 
