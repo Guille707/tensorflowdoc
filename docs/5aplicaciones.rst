@@ -6,7 +6,7 @@ Demostración de imagen a imagen
 
 El modelo pix2pix funciona entrenando en pares de imágenes, como la construcción de etiquetas de fachada para construir fachadas, y luego intenta generar la imagen de salida correspondiente desde cualquier imagen de entrada que le proporcione. La idea es directamente del papel pix2pix , que es una buena lectura.
 
-
+.. image:: img/TF14.jpg
 
 To use this template, simply update it::
 
