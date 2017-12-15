@@ -1,5 +1,5 @@
 Authors
 -------
 
-* Sysoo
+* Sysoo (Guillermo Lemunao)
 
