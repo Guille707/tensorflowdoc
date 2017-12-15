@@ -235,3 +235,207 @@ Abra un proyecto con AndroidStudio siguiendo estos pasos:
 En el selector de archivos, elija tensorflow-for-poets-2/android/tfmobiledesde su directorio de trabajo.
 
 Obtendrá una ventana emergente de "Gradle Sync", la primera vez que abre el proyecto, y le pregunta sobre el uso de gradle wrapper. Haga clic en Aceptar".
+
+Prueba ejecutar la aplicación
+
+La aplicación se puede ejecutar en un dispositivo Android real o en el emulador de AndroidStudio.
+
+Configura un dispositivo Android
+
+No puede cargar la aplicación de Android Studio en su teléfono a menos que active "modo desarrollador" y "Depuración USB". Este es un proceso de configuración de una sola vez.
+
+Siga `estas instrucciones <https://developer.android.com/studio/debug/dev-options.html#enable>`_.
+
+Para hacer esto, necesita crear un nuevo dispositivo en el "Administrador de dispositivos virtuales de Android", al que puede acceder con este botón:
+
+.. image:: img/TF30.png
+
+Desde la página principal de ADVM, seleccione "Crear dispositivo virtual":
+
+.. image:: img/tf31.png
+
+Luego, en la página "Verificar configuración", la última página de la configuración del dispositivo virtual, seleccione "Mostrar configuración avanzada":
+
+.. image:: img/tf32.png
+
+Con la configuración avanzada que se muestra, puede configurar la fuente de la cámara para usar la cámara web de la computadora host:
+
+.. image:: img/tf33.png
+
+Prueba Crea e instala la aplicación
+Antes de realizar cualquier cambio en la aplicación, ejecutemos la versión que se envía con el repositorio.
+
+Ejecute una sincronización de Gradle:
+
+.. image:: img/tf34.png
+
+y luego pulse reproducir, en Android Studio para iniciar el proceso de compilación e instalación.
+
+Android Studio puede solicitarle que habilite la ejecución instantánea. Esto no es recomendable ya que aún no es totalmente compatible con el NDK de Android, que se usa para construir las bibliotecas de inferencia de TensorFlow.
+
+A continuación, deberá seleccionar su teléfono desde esta ventana emergente:
+
+.. image:: img/tf35.png
+
+Ahora permite que Tensorflow Demo acceda a tu cámara y a tus archivos:
+
+.. image:: img/tf36.png
+
+Ahora que la aplicación está instalada, haga clic en el ícono de la aplicación . 
+image:: img/tf37.png 
+para iniciarla. Esta versión de la aplicación usa MobileNet estándar, entrenado previamente en las categorías de 1000 ImageNet. Debería verse algo como esto ("Android" no es una de las categorías disponibles)
+
+.. image:: img/tf38.png
+
+Ejecuta la aplicación personalizada
+
+La configuración predeterminada de la aplicación clasifica las imágenes en una de las 1000 clases de ImageNet, utilizando la red móvil estándar.
+
+Ahora modifiquemos la aplicación para que la aplicación use nuestro morel reciclado para nuestras categorías de imágenes personalizadas.
+
+Agregue sus archivos modelo al proyecto
+
+El proyecto de demostración está configurado para buscar a graph.pby labels.txt archivos en android/tfmobile/assetsdirectorio. Reemplace esos dos archivos con sus versiones. El siguiente comando realiza esta tarea:
+
+cp tf_files/rounded_graph.pb android/tfmobile/assets/graph.pb
+cp tf_files/retrained_labels.txt android/tfmobile/assets/labels.txt
+
+Cambiar output_name en ClassifierActivity.java
+
+La interfaz TensorFlow utilizada por la aplicación requiere que solicite sus resultados por su nombre. La aplicación está configurada actualmente para leer el resultado de la línea base MobileNet, nombrado "MobilenetV1/Predictions/Softmax". El nodo de salida para nuestro modelo tiene un nombre diferente: "final_result". Abra ClassifierActivity.java y actualice OUTPUT_NAME de la siguiente manera:
+
+`ClassifierActivity.java <https://github.com/googlecodelabs/tensorflow-for-poets-2/blob/master/android/src/org/tensorflow/demo/ClassifierActivity.java>`_::
+
+	  private static final String INPUT_NAME = "input";
+	  private static final String OUTPUT_NAME = "final_result";
+
+Ejecuta tu aplicación
+
+En Android Studio, ejecute una sincronización de Gradle:
+
+.. image:: img/tf34.png
+
+para que el sistema de compilación pueda encontrar sus archivos y luego pulse reproducir.
+
+Debería verse algo como esto:
+
+.. image:: img/tf39.png
+
+Puede mantener pulsados ​​los botones de encendido y de reducción de volumen para tomar una captura de pantalla.
+
+Ahora intente una búsqueda web de flores, señale la cámara en la pantalla de la computadora y vea si esas imágenes están clasificadas correctamente.
+
+O haga que un amigo le tome una foto y descubra qué tipo de flor es.
+
+Si obtiene un error de sincronización de Gradle:
+
+.. image:: img/tf40.png
+
+Es porque Gradle no pudo encontrar android/tfmobile/assets/graph.pb, o android/tfmobile/assets/labels.txt. Verifique las ubicaciones de esos archivos y vuelva a ejecutar la sincronización gradle haciendo clic en el botón "Sincronizar proyecto con archivos Gradle" desde la barra de herramientas:
+
+.. image:: img/tf34.png
+
+Ahora que tiene la aplicación ejecutándose, veamos el código específico de TensorFlow.
+
+TensorFlow-Android AAR
+
+Esta aplicación utiliza un archivo Android (AAR) precompilado para sus dependencias TensorFlow. Este AAR está alojado en `jcenter <https://bintray.com/google/tensorflow/tensorflow-android>`_. El código para construir el AAR vive en `tensorflow.contrib.android <https://github.com/tensorflow/tensorflow/tree/master/tensorflow/contrib/android>`_.
+
+Las siguientes líneas en el archivo `build.gradle <https://github.com/googlecodelabs/tensorflow-for-poets-2/blob/master/android/build.gradle>`_ incluyen el AAR en el proyecto.
+
+`build.gradle <https://github.com/googlecodelabs/tensorflow-for-poets-2/blob/master/android/build.gradle>`_::
+
+	repositories {
+	   jcenter()
+	}
+
+	dependencies {
+	   compile 'org.tensorflow:tensorflow-android:+'
+	}
+
+Uso de la interfaz de inferencia de TensorFlow
+El código que interactúa con TensorFlow está contenido en `TensorFlowImageClassifier.java <https://github.com/googlecodelabs/tensorflow-for-poets-2/blob/master/android/src/org/tensorflow/demo/TensorFlowImageClassifier.java>`_.
+
+Crea la interfaz
+
+El primer bloque de interés simplemente crea a TensorFlowInferenceInterface, que carga el TensorFlowgráfico nombrado usando el assetManager.
+
+Esto es similar a a tf.Session(para aquellos familiarizados con TensorFlow en Python).
+
+`TensorFlowImageClassifier.java <https://github.com/googlecodelabs/tensorflow-for-poets-2/blob/master/android/src/org/tensorflow/demo/TensorFlowImageClassifier.java>`_::
+
+	// load the model into a TensorFlowInferenceInterface.
+	c.inferenceInterface = new TensorFlowInferenceInterface(
+	    assetManager, modelFilename);
+
+Inspeccione el nodo de salida
+
+Este modelo se puede volver a entrenar con diferentes números de clases de salida. Para garantizar que creamos una matriz de salida con el tamaño correcto, inspeccionamos las operaciones de TensorFlow:
+
+`TensorFlowImageClassifier.java <https://github.com/googlecodelabs/tensorflow-for-poets-2/blob/master/android/src/org/tensorflow/demo/TensorFlowImageClassifier.java>`_::
+
+	// Get the tensorflow node
+	final Operation operation = c.inferenceInterface.graphOperation(outputName);
+
+	// Inspect its shape
+	final int numClasses = (int) operation.output(0).shape().size(1);
+
+	// Build the output array with the correct size.
+	c.outputs = new float[numClasses];
+
+Alimentar en la entrada
+
+Para ejecutar la red, necesitamos alimentar nuestros datos. Usamos el feedmétodo para eso. Para usar feed,debemos pasar:
+
+	el nombre del nodo para alimentar los datos
+
+	los datos para poner en ese nodo
+
+	la forma de los datos
+
+Las siguientes líneas ejecutan el método de alimentación.
+
+`TensorFlowImageClassifier.java <https://github.com/googlecodelabs/tensorflow-for-poets-2/blob/master/android/src/org/tensorflow/demo/TensorFlowImageClassifier.java>`_::
+
+	inferenceInterface.feed(
+	    inputName,   // The name of the node to feed. 
+	    floatValues, // The array to feed
+	    1, inputSize, inputSize, 3 ); // The shape of the array
+
+::
+
+	Preguntas frecuentes: una imagen es una matriz en 3D (ancho, alto, color), ¿por qué la forma aquí tiene 4 dimensiones?
+
+	Este modelo está diseñado para ejecutar pilas de imágenes (con tamaños idénticos) en una sola ejecución. El primer índice está en la pila de imágenes. Aquí estamos alimentando en una "pila" que contiene una sola imagen.
+
+Ejecute el cálculo
+
+Ahora que las entradas están en su lugar, podemos ejecutar el cálculo.
+
+Tenga en cuenta que este run, método toma una matriz de nombres de salida porque es posible que desee extraer más de una salida. También acepta un indicador booleano para controlar el registro.
+
+`TensorFlowImageClassifier.java <https://github.com/googlecodelabs/tensorflow-for-poets-2/blob/master/android/src/org/tensorflow/demo/TensorFlowImageClassifier.java>`_. ::
+
+	inferenceInterface.run(
+	    outputNames, // Names of all the nodes to calculate.
+	    logStats);   // Bool, enable stat logging.
+
+Obtener la salida 
+
+Ahora que la salida se ha calculado, podemos sacarla del modelo en una variable local. 
+La outputsmatriz aquí es la que dimensionamos mediante la inspección de la salida Operationanterior.
+
+Llame a este método de búsqueda una vez por cada salida que desee recuperar.
+
+`TensorFlowImageClassifier.java <https://github.com/googlecodelabs/tensorflow-for-poets-2/blob/master/android/src/org/tensorflow/demo/TensorFlowImageClassifier.java>`_::
+
+	inferenceInterface.fetch(
+	    outputName,  // Fetch this output.
+	    outputs);    // Into the prepared array.
+
+¿Qué sigue?
+
+Hay muchas opciones:
+
+Revise otros ejemplos de `mobile-tensorflow <http://tensorflow.org/mobile/>`_ . Los otros ejemplos de Android incluyen aplicaciones que hacen `estilización de imagen y detección de peatones <https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android>`_ . El ejemplo de `estilización <https://codelabs.developers.google.com/codelabs/tensorflow-style-transfer-android/index.html>`_ también está disponible `como un codelab <https://codelabs.developers.google.com/codelabs/tensorflow-style-transfer-android/index.html>`_ .
+Si desea obtener más información sobre TensorFlow en general, `consulte cómo comenzar <http://tensorflow.org/get_started>_.

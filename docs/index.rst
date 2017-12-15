@@ -19,5 +19,6 @@ TensorFlow es una biblioteca de código abierto para el cálculo numérico utili
    Transferencia de estilo artístico <6tet>
    Reconocimiento de imágenes TensorFlow <7rit>
    Demostración de imagen a imagen <5imgimg>
+   Agradecimientos <8agr>
    Otros <9otros>
    
