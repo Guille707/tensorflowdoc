@@ -61,3 +61,5 @@ Links de interés
 `Interactive Abstract Pattern Generation Javascript Demo <http://blog.otoro.net/2016/04/24/interactive-abstract-pattern-generation-javascript-demo/>`_
 
 `Fast PixelCNN++: speedy image generation <https://github.com/PrajitR/fast-pixel-cnn>`_
+
+Recopilación realizada por Guillermo Lemunao.
