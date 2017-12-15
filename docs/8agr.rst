@@ -43,7 +43,6 @@ Links de interés
 `Deep Text Corrector usa TensorFlow para entrenar modelos de secuencia a secuencia que son capaces de corregir automáticamente pequeños errores gramaticales en el inglés escrito de conversación <https://github.com/atpaino/deep-text-corrector>`_
 
 `Aplicación Mini AI con TensorFlow y Shiny <https://www.r-bloggers.com/mini-ai-app-using-tensorflow-and-shiny/>`_
-.. image:: img/tf50.png
 
 `Creating REST API for TensorFlow models <https://becominghuman.ai/creating-restful-api-to-tensorflow-models-c5c57b692c10>`_ 
 
