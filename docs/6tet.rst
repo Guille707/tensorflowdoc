@@ -200,9 +200,7 @@ Importante : si recibe una advertencia sobre " No se puede encontrar el símbolo
 	 for (int i = 0; i < intValues.length; ++i) {
 	 // ...
 	}
-
-
-	Opcional: busque renderDebugy agregue el texto de estado de TensorFlow a la superposición de depuración (que se activa cuando presiona las teclas de volumen).			
+		
 
 `StylizeActivity.java <https://github.com/googlecodelabs/tensorflow-style-transfer-android/blob/codelab-finish/android/src/org/tensorflow/demo/StylizeActivity.java>`_ 
 
@@ -224,7 +222,7 @@ Importante : si recibe una advertencia sobre " No se puede encontrar el símbolo
 	 // ... more provided code for rendering the text ...
 	}
 
-Importante : si recibe una advertencia sobre " No se puede encontrar el símbolo ... ", deberá agregar las declaraciones de importación en este archivo. Android Studio puede hacer esto para usted si se mueve el cursor sobre el texto de error en rojo, pulse Alt-Intro , y selecciona Importar ... .
+Importante : si recibe una advertencia sobre " No se puede encontrar el símbolo ... ", deberá agregar las declaraciones de importación en este archivo. Android Studio puede hacer esto para usted si se mueve el cursor sobre el texto de error en rojo, pulse Alt-Intro , y selecciona Importar ...
 
 Finalmente
 
