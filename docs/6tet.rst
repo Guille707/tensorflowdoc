@@ -26,7 +26,7 @@ Necesitamos:
 
 Un dispositivo Android que ejecuta Lollipop (API 21, v5.0) con una cámara compatible con `Camera2 API <https://developer.android.com/reference/android/hardware/camera2/package-summary.html>`_ (introducido en API 21)
 
-Android Studio v2.2 o superior
+`Android Studio v2.2 o superior <http://tools.android.com/download/studio/builds/2-2-2>`_
 
 Incluyendo v23 (Marshmallow) o superior de las herramientas de compilación SDK
 

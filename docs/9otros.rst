@@ -2,11 +2,11 @@
 Otros
 =====
 
-API de Ruby para utilizar TensorFlow.
+`API de Ruby <https://github.com/somaticio/tensorflow.rb>`_ para utilizar TensorFlow.
 
 .. image:: img/ruby.png 
 
-TensorFlow Node. js JavaScript y una API de alto nivel para los usuarios de Node. js.
+`TensorFlow Node.js <https://www.npmjs.com/package/tensorflow2>`_ JavaScript y una API de alto nivel para los usuarios de Node. js.
 
 .. image:: img/node.png 
 
