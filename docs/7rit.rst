@@ -431,4 +431,4 @@ Llame a este método de búsqueda una vez por cada salida que desee recuperar.
 Hay muchas opciones:
 
 Revise otros ejemplos de `mobile-tensorflow <http://tensorflow.org/mobile/>`_ . Los otros ejemplos de Android incluyen aplicaciones que hacen `estilización de imagen y detección de peatones <https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android>`_ . El ejemplo de `estilización <https://codelabs.developers.google.com/codelabs/tensorflow-style-transfer-android/index.html>`_ también está disponible `como un codelab <https://codelabs.developers.google.com/codelabs/tensorflow-style-transfer-android/index.html>`_ .
-Si desea obtener más información sobre TensorFlow en general, `consulte cómo comenzar <http://tensorflow.org/get_started>`_.
+Si desea obtener más información sobre TensorFlow en general `consulte cómo comenzar <http://tensorflow.org/get_started>`_.
