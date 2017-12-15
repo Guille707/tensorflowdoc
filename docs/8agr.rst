@@ -11,9 +11,8 @@ Agradecimientos a los autores de las siguientes publicaciones por aportar a la a
 `Image-to-Image Demo <https://affinelayer.com/pixsrv/>`_
 
 `Conceptos básicos tensorflow ppt <https://mycourses.aalto.fi/pluginfile.php/378855/course/section/77964/tensorflow_presentation.pdf>`_ 
-`Reconocimiento de imágenes TensorFlow <https://codelabs.developers.google.com/codelabs/tensorflow-for-poets-2-tflite/index.html?index=..%2F..%2Findex#0>`_
 
-`<https://codelabs.developers.google.com/codelabs/tensorflow-style-transfer-android/index.html?index=..%2F..%2Findex#0>`_
+`Reconocimiento de imágenes TensorFlow <https://codelabs.developers.google.com/codelabs/tensorflow-for-poets-2/index.html#0>`_
 
 `Artistic style transfer <https://codelabs.developers.google.com/codelabs/tensorflow-style-transfer-android/index.html?index=..%2F..%2Findex#0>`_ 
 
