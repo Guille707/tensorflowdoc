@@ -1,2 +1,2 @@
-Tensor Flow DOC by Guillermo Lemunao Carrasco
+Tensor Flow DOC Guillermo Lemunao Carrasco
 ========
